@@ -1,10 +1,10 @@
 .. pypps_reader documentation master file, created by
-   sphinx-quickstart (cut'n'paste from python-geotiepoints - Adam June 28th, 2013)
+   sphinx-quickstart on Fri Jun 28 15:23:28 2013.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-pypps_reader
-============
+Welcome to pypps_reader's documentation!
+========================================
 
 pypps_reader is a small application for the reading of NWCSAF-PPS generated
 data, both final products and those files that PPS spits out on it's way during
@@ -14,7 +14,12 @@ The source code of the module can be found on the github_ page.
 
 .. _github: http://github.com/adybbroe/pypps_reader
 
-.. contents::
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
+
 
 Installation
 ------------
@@ -63,7 +68,6 @@ A simple usage:
     -47.10800224  -47.10900224]
   [ 129.57800615  129.55400615  129.52900615 ...,  -47.13200224
     -47.13300224  -47.13500224]] 
-
 
 
 

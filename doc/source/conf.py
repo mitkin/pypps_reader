@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # pypps_reader documentation build configuration file, created by
-# sphinx-quickstart (from cut'n'paste from python-geotiepoints - Adam 2013-06-28)
+# sphinx-quickstart on Fri Jun 28 15:23:28 2013.
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
@@ -17,34 +17,6 @@ import sys, os
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('../../'))
-sys.path.insert(0, os.path.abspath('../../pypps_reader'))
-
-
-
-class Mock(object):
-    def __init__(self, *args, **kwargs):
-        pass
-
-    def __call__(self, *args, **kwargs):
-        return Mock()
-
-    @classmethod
-    def __getattr__(cls, name):
-        if name in ('__file__', '__path__'):
-            return '/dev/null'
-        elif name[0] == name[0].upper():
-            mockType = type(name, (), {})
-            mockType.__module__ = __name__
-            return mockType
-        else:
-            return Mock()
-
-
-MOCK_MODULES = ['numpy', 'pyresample', 'h5py']
-for mod_name in MOCK_MODULES:
-    sys.modules[mod_name] = Mock()
-
 
 # -- General configuration -----------------------------------------------------
 
@@ -53,13 +25,10 @@ for mod_name in MOCK_MODULES:
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest']
-#extensions = ['sphinx.ext.autodoc', 'sphinx.ext.doctest', 
-#              'sphinx.ext.coverage', 'sphinxtogithub']
+extensions = ['sphinx.ext.autodoc']
 
 # Add any paths that contain templates here, relative to this directory.
-#templates_path = ['.templates']
-templates_path = ['sphinx_templates']
+templates_path = ['_templates']
 
 # The suffix of source filenames.
 source_suffix = '.rst'
@@ -72,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'pypps_reader'
-copyright = u'2013, EUMETSAT'
+copyright = u'2013, Adam Dybbroe'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -122,7 +91,6 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'sphinxdoc'
 html_theme = 'default'
 
 # Theme options are theme-specific and customize the look and feel of a theme
@@ -152,8 +120,7 @@ html_theme = 'default'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-#html_static_path = ['.static']
-html_static_path = ['sphinx_static']
+html_static_path = ['_static']
 
 # If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
 # using the given strftime format.
@@ -211,8 +178,8 @@ htmlhelp_basename = 'pypps_readerdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'pypps_reader.tex', u'pypps_reader Documentation',
-   u'EUMETSAT', 'manual'),
+  ('index', 'pypps_reader.tex', u'pypps\\_reader Documentation',
+   u'Adam Dybbroe', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -245,5 +212,5 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'pypps_reader', u'pypps_reader Documentation',
-     [u'EUMETSAT'], 1)
+     [u'Adam Dybbroe'], 1)
 ]
