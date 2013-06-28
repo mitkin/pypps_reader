@@ -56,6 +56,8 @@ setup(name='pypps-reader',
       # installed or upgraded on the target machine
       install_requires=['docutils>=0.3', 
                         'numpy', 'h5py'],
+      extras_require = {'geolocation layout for pyresample': ['pyresample'],
+                        },
       scripts = [],      
       data_files=[('etc', ['etc/pps_reader.cfg'])],
       test_suite="nose.collector",

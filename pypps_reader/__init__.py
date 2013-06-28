@@ -42,8 +42,8 @@ class InfoObject(object):
         self.info = {}
         self.data = None
 
-class NwcSafPpsData():
-
+class NwcSafPpsData(object):
+    """The NWCSAF PPS Data class providing the readers"""
     def __init__(self, filename=None):
         self._how = {}
         self._what = {}
