@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
-# python-geotiepoints documentation build configuration file, created by
-# sphinx-quickstart on Tue May 15 10:12:57 2012.
+# pypps_reader documentation build configuration file, created by
+# sphinx-quickstart (from cut'n'paste from python-geotiepoints - Adam 2013-06-28)
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
@@ -18,7 +18,7 @@ import sys, os
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('../../'))
-sys.path.insert(0, os.path.abspath('../../geotiepoints'))
+sys.path.insert(0, os.path.abspath('../../pypps_reader'))
 
 
 
@@ -41,8 +41,7 @@ class Mock(object):
             return Mock()
 
 
-MOCK_MODULES = ['numpy', 'scipy.interpolate', 'scipy', 'pyresample',
-                'pyhdf.SD', 'pyhdf.error']
+MOCK_MODULES = ['numpy', 'pyresample', 'h5py']
 for mod_name in MOCK_MODULES:
     sys.modules[mod_name] = Mock()
 
@@ -72,8 +71,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'python-geotiepoints'
-copyright = u'2012, Pytroll crew'
+project = u'pypps_reader'
+copyright = u'2013, SMHI/EUMETSAT'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -198,7 +197,7 @@ html_static_path = ['sphinx_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'python-geotiepointsdoc'
+htmlhelp_basename = 'pypps_readerdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -212,8 +211,8 @@ htmlhelp_basename = 'python-geotiepointsdoc'
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'python-geotiepoints.tex', u'python-geotiepoints Documentation',
-   u'Pytroll crew', 'manual'),
+  ('index', 'pypps_reader.tex', u'pypps_reader Documentation',
+   u'SMHI/EUMETSAT', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -245,6 +244,6 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    ('index', 'python-geotiepoints', u'python-geotiepoints Documentation',
-     [u'Pytroll crew'], 1)
+    ('index', 'pypps_reader', u'pypps_reader Documentation',
+     [u'SMHI/EUMETSAT'], 1)
 ]
