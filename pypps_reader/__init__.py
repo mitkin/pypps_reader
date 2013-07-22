@@ -170,6 +170,9 @@ class NwcSafPpsData(object):
         # Read the data and attributes
         #   This covers only one level of data. This could be made recursive.
         for key, dataset in h5f.iteritems():
+            if key.startswith('1'):
+                key = 'one' + key.strip('1')
+
             setattr(self, key, InfoObject())
             getattr(self, key).info = dict(dataset.attrs)
             for skey, value in dataset.attrs.iteritems():
