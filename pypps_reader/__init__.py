@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Copyright (c) 2013 Adam.Dybbroe
+# Copyright (c) 2013, 2014 Adam.Dybbroe
 
 # Author(s):
 
@@ -45,6 +45,7 @@ class InfoObject(object):
 class NwcSafPpsData(object):
     """The NWCSAF PPS Data class providing the readers"""
     def __init__(self, filename=None):
+        self.info = {}
         self._how = {}
         self._what = {}
         self.lon = None
@@ -72,7 +73,10 @@ class NwcSafPpsData(object):
 
         self._how = dict(h5f['how'].attrs)
         self._what = dict(h5f['what'].attrs)
-        self._how["satellite"] = h5f['how'].attrs['platform']
+        if 'platform' in h5f['how'].attrs.keys():
+            self._how["satellite"] = h5f['how'].attrs['platform']
+        else:
+            LOG.warning('No platform in how group. Skipping...')
         # Which one to use?:
         self._how["time_slot"] = (timedelta(seconds=long(h5f['how'].attrs['startepochs']))
                                   + datetime(1970, 1, 1, 0, 0))
@@ -155,15 +159,18 @@ class NwcSafPpsData(object):
         self._md = dict(h5f.attrs)
         try:
             self._md["satellite"] = h5f.attrs['satellite_id']
+            self.info["satellite"] = h5f.attrs['satellite_id']
         except KeyError:
             LOG.warning("No root level attribute like this: satellite_id")
         try:
             self._md["orbit"] = h5f.attrs['orbit_number']
+            self.info["orbit_number"] = h5f.attrs['orbit_number']
         except KeyError:
             LOG.warning("No root level attribute like this: orbit_number")
         try:
             self._md["time_slot"] = (timedelta(seconds=long(h5f.attrs['sec_1970']))
                                      + datetime(1970, 1, 1, 0, 0))
+            self.info['time'] = self._md["time_slot"]
         except KeyError:
             LOG.warning("No root level attribute like this: sec_1970")
 
