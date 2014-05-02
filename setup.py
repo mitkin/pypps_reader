@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-# Copyright (c) 2013 Adam Dybbroe
+# Copyright (c) 2013, 2014 Adam Dybbroe
 
 # Author(s):
 
@@ -33,8 +33,8 @@ import imp
 
 version = imp.load_source('pypps_reader.version', 'pypps_reader/version.py')
 
-setup(name='pypps-reader',
-      version="v0.1.0",
+setup(name='pypps_reader',
+      version="v0.1.1",
       description='NWCSAF pps data reader',
       author='Adam Dybbroe',
       author_email='adam.dybbroe@smhi.se',
