@@ -81,7 +81,7 @@ class NwcSafPpsData(object):
         self._how["time_slot"] = (timedelta(seconds=long(h5f['how'].attrs['startepochs']))
                                   + datetime(1970, 1, 1, 0, 0))
         self._what["time_slot"] = datetime.strptime(h5f['what'].attrs['date'] + 
-                                                    h5f['what'].attrs['time'],
+                                                    h5f['what'].attrs['time'][0:6],
                                                     "%Y%m%d%H%M%S")
 
          # Read the data and attributes
