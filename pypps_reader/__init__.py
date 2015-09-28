@@ -167,12 +167,12 @@ class NwcSafPpsData(object):
             self.info["orbit_number"] = h5f.attrs['orbit_number']
         except KeyError:
             LOG.warning("No root level attribute like this: orbit_number")
-        try:
-            self._md["time_slot"] = (timedelta(seconds=long(h5f.attrs['sec_1970']))
-                                     + datetime(1970, 1, 1, 0, 0))
-            self.info['time'] = self._md["time_slot"]
-        except KeyError:
-            LOG.warning("No root level attribute like this: sec_1970")
+        # try:
+        #     self._md["time_slot"] = (timedelta(seconds=long(h5f.attrs['sec_1970']))
+        #                              + datetime(1970, 1, 1, 0, 0))
+        #     self.info['time'] = self._md["time_slot"]
+        # except KeyError:
+        #     LOG.warning("No root level attribute like this: sec_1970")
 
         # Read the data and attributes
         #   This covers only one level of data. This could be made recursive.
