@@ -54,7 +54,7 @@ setup(name='pypps_reader',
 
       # Project should use reStructuredText, so ensure that the docutils get
       # installed or upgraded on the target machine
-      install_requires=['docutils>=0.3', 
+      install_requires=['docutils>=0.3', 'cython', 
                         'numpy', 'h5py'],
       extras_require = {'geolocation layout for pyresample': ['pyresample'],
                         },
